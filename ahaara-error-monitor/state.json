@@ -1,0 +1,74 @@
+{
+  "lastChecked": "2026-09-18T14:32:40Z",
+  "lastRunStatus": "0 new errors in last 7 days. Last app_error seen 2026-08-23. Event pipeline verified healthy.",
+  "lastRunTime": "2026-09-18T14:32:40Z",
+  "seenErrors": {
+    "029e88f51c09479e30ffc1f2d4f0169b26e8e30dacdae793ea60b384b5048c31": {
+      "firstSeen": "2026-03-10T17:04:53Z",
+      "lastSeen": "2026-03-10T17:04:53Z",
+      "occurrences": 1,
+      "status": "fixed",
+      "fixCommit": "b3c3ddc"
+    },
+    "56c2153cf0cf90f34b277030ad023401a85fd8cf4d0e93166a2e8d09ef82960d": {
+      "firstSeen": "2026-03-17T10:09:46Z",
+      "lastSeen": "2026-03-17T10:09:46Z",
+      "occurrences": 1,
+      "status": "fixed",
+      "fixCommit": "50c15b0"
+    },
+    "31f94c8d0edf232913b04b6405843e03ee6bfe6dc5cf1ea55f75e14a31fa8936": {
+      "firstSeen": "2026-04-09T15:52:50Z",
+      "lastSeen": "2026-04-15T19:46:47Z",
+      "occurrences": 46,
+      "status": "reported",
+      "errorType": "FlutterError",
+      "errorMessage": "RenderFlex overflow (multiple variants)",
+      "context": "rendering library",
+      "note": "No stack traces - classified as complex, reported to Divyam."
+    },
+    "8b94c7d4e2a1b3c5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6": {
+      "firstSeen": "2026-04-15T19:46:47Z",
+      "lastSeen": "2026-04-15T19:46:47Z",
+      "occurrences": 1,
+      "status": "monitoring",
+      "errorType": "FlutterError",
+      "errorMessage": "A RenderFlex overflowed by 6.6 pixels on the right.",
+      "context": "rendering library"
+    },
+    "9c85d6e3f7b2c4d1e8f9a0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s": {
+      "firstSeen": "2026-04-15T19:45:39Z",
+      "lastSeen": "2026-04-15T19:45:39Z",
+      "occurrences": 1,
+      "status": "monitoring",
+      "errorType": "FlutterError",
+      "errorMessage": "A RenderFlex overflowed by 790 pixels on the right.",
+      "context": "rendering library"
+    },
+    "6182ee1416908927dd69adcde6f9068502bb734648ab6045ec9c615fd011aa4a": {
+      "firstSeen": "2026-04-19T09:54:19Z",
+      "lastSeen": "2026-04-19T09:54:19Z",
+      "occurrences": 1,
+      "status": "reported",
+      "errorType": "HttpExceptionWithStatus",
+      "errorMessage": "HttpException: Invalid statusCode: 400, uri = https://yrabrnnahllogoysdvwi.supabase.co/storage/v1/object/public/dish-photos/chilli-broccoli-salad.jpg",
+      "context": "image resource service",
+      "classification": "simple",
+      "note": "Missing image in Supabase storage for recipe #391. UI handles gracefully via errorWidget. Need service_role key to clear cover_image_url or upload actual image."
+    },
+    "13d405d88e2112040bdaf5691a3cab222bddb41787280004fb5c4d31479ab9eb": {
+      "firstSeen": "2026-04-20T08:15:00Z",
+      "lastSeen": "2026-04-20T08:20:00Z",
+      "occurrences": 5,
+      "status": "reported",
+      "fixCommit": null
+    },
+    "967c0fcc099972657dd8525dc1e43a5016928774630085ba760ec3c97e3dc21c": {
+      "firstSeen": "2026-04-20T08:10:00Z",
+      "lastSeen": "2026-04-20T08:18:00Z",
+      "occurrences": 2,
+      "status": "reported",
+      "fixCommit": null
+    }
+  }
+}

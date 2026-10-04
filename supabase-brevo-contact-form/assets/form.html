@@ -1,0 +1,33 @@
+<!-- Contact form. Fields must match the table columns and the Edge Function's
+     required-field check. The success/error panels are toggled by script.js. -->
+<div class="contact-form-panel">
+  <div class="form-success" id="form-success" hidden>
+    <h3>Thanks — we've got it.</h3>
+    <p>We'll be in touch shortly.</p>
+  </div>
+  <form id="contact-form" novalidate>
+    <div class="field">
+      <label for="f-name">Name</label>
+      <input id="f-name" name="name" type="text" required placeholder="Your name" autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="f-email">Email</label>
+      <input id="f-email" name="email" type="email" required placeholder="you@company.com" autocomplete="email">
+    </div>
+    <div class="field">
+      <label for="f-type">What are you after?</label>
+      <select id="f-type" name="project_type" required>
+        <option value="">Select…</option>
+        <option>Web application</option>
+        <option>Mobile app</option>
+        <option>Something else</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="f-details">A few details</label>
+      <textarea id="f-details" name="details" required rows="3" placeholder="Tell us a little about it."></textarea>
+    </div>
+    <button type="submit" class="btn-submit">Send</button>
+    <p class="form-error" id="form-error" hidden>Something went wrong. Please try again, or email us directly.</p>
+  </form>
+</div>

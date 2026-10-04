@@ -1,0 +1,22 @@
+{
+  "lastChecked": "2026-02-24T20:00:05.224Z",
+  "items": [
+    {
+      "id": "ALNs7CU41mt3LZttyUib9Pw",
+      "type": "screenshot",
+      "timestamp": "2026-02-21T23:53:05.372Z",
+      "comment": "Test feedback",
+      "deviceModel": "iPhone15_2",
+      "osVersion": "18.6.2",
+      "locale": "en-GB",
+      "appVersion": "2",
+      "testerName": "Deeksha Rastogi",
+      "testerEmail": "deek.rastogi94@gmail.com",
+      "screenshotIds": [
+        "QUxOczdDVTQxbXQzTFp0dHlVaWI5UHc6MA=="
+      ],
+      "classification": "test",
+      "action": "none — test submission"
+    }
+  ]
+}

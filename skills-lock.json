@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "video-frames": {
+      "source": "steipete/clawdis",
+      "sourceType": "github",
+      "skillPath": "skills/video-frames/SKILL.md",
+      "computedHash": "77dffe08eb504e9e1187b4f45abe455c586453fd2c9c3a923436ea69353c3e57"
+    }
+  }
+}

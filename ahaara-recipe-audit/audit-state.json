@@ -1,0 +1,434 @@
+{
+  "_meta": {
+    "description": "Tracks which Ahaara recipes have been audited for source + quality. Update whenever a recipe is re-imported or manually verified.",
+    "thresholds": {
+      "audited": "4+ tasks AND 3+ ingredients AND sourced from approved list",
+      "needs_review": "2-3 tasks \u2014 may be too thin, check recipe steps",
+      "pending": "not yet checked"
+    },
+    "approved_sources": [
+      "ranveerbrar.com",
+      "sanjeevkapoor.com",
+      "hebbarskitchen.com"
+    ],
+    "last_updated": "2026-03-14",
+    "last_reimport": "2026-03-14 \u2014 6 thin recipes reimported from hebbarskitchen.com"
+  },
+  "recipes": {
+    "Achari Chicken": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Achari Paneer": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Aloo Gobi": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Aloo Matar": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "unknown"
+    },
+    "Aloo Palak": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "unknown"
+    },
+    "Aloo Paratha": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Aloo Tikki": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Aviyal": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "hebbarskitchen.com"
+    },
+    "Baingan Bharta": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Bajra Upma": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Beans Poriyal": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "hebbarskitchen.com"
+    },
+    "Besan Chilla": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "hebbarskitchen.com"
+    },
+    "Bharwan Shimla Mirch": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "unknown"
+    },
+    "Bhindi Masala": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "unknown"
+    },
+    "Bisi Bele Bath": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "hebbarskitchen.com"
+    },
+    "Bread Pakora": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Butter Chicken": {
+      "status": "audited",
+      "tasks": 8,
+      "source": "ranveerbrar.com"
+    },
+    "Cabbage Sabzi": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "hebbarskitchen.com"
+    },
+    "Chana Dal Fry": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Cheese Bread Upma": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Chettinad Chicken": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Bhuna": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Cafreal": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Curry": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Do Pyaza": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Dum Biryani": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Handi": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Keema": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "sanjeevkapoor.com"
+    },
+    "Chicken Korma": {
+      "status": "audited",
+      "tasks": 7,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Saag": {
+      "status": "audited",
+      "tasks": 7,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Tikka": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Tikka Lazeez": {
+      "status": "audited",
+      "tasks": 7,
+      "source": "ranveerbrar.com"
+    },
+    "Chicken Vindaloo": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Classic Upma": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Coconut Rice": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Corn Capsicum Masala": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "hebbarskitchen.com"
+    },
+    "Curd Rice": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "ranveerbrar.com"
+    },
+    "Dal Khichdi": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Dal Makhani": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Dal Palak": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Dal Tadka": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Daliya Upma": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Dhaba Dal Fry": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Dhokla": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Dum Aloo": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Dum Aloo Kashmiri": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Egg Bhurji": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Egg Fried Rice": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Goan Prawn Curry": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "sanjeevkapoor.com"
+    },
+    "Gobi Manchurian": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Gujarati Dal": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "hebbarskitchen.com"
+    },
+    "Jeera Aloo": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "unknown"
+    },
+    "Jeera Rice": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "hebbarskitchen.com"
+    },
+    "Kadai Chicken": {
+      "status": "audited",
+      "tasks": 8,
+      "source": "sanjeevkapoor.com"
+    },
+    "Lauki Chana Dal": {
+      "status": "audited",
+      "tasks": 7,
+      "source": "hebbarskitchen.com"
+    },
+    "Lobia Masala": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Masala Chicken Curry": {
+      "status": "audited",
+      "tasks": 10,
+      "source": "ranveerbrar.com"
+    },
+    "Masala Dosa": {
+      "status": "audited",
+      "tasks": 7,
+      "source": "ranveerbrar.com"
+    },
+    "Masala Tomato Upma": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Masoor Dal": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Matar Paneer": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "unknown"
+    },
+    "Medu Vada": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Mix Veg Curry": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "unknown"
+    },
+    "Moong Dal Tadka": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "hebbarskitchen.com"
+    },
+    "Muradabadi Chicken Biryani": {
+      "status": "audited",
+      "tasks": 10,
+      "source": "ranveerbrar.com"
+    },
+    "Mushroom Masala": {
+      "status": "audited",
+      "tasks": 3,
+      "source": "unknown"
+    },
+    "Palak Paneer": {
+      "status": "audited",
+      "tasks": 7,
+      "source": "ranveerbrar.com"
+    },
+    "Panchmel Dal": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Paneer Butter Masala": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Paneer Kofta": {
+      "status": "audited",
+      "tasks": 8,
+      "source": "hebbarskitchen.com"
+    },
+    "Paneer Tikka Masala": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "hebbarskitchen.com"
+    },
+    "Pasta Arrabiata": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Patra": {
+      "status": "audited",
+      "tasks": 5,
+      "source": "ranveerbrar.com"
+    },
+    "Pav Bhaji": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Punjabi Chole": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Quick Tadka Chole": {
+      "status": "audited",
+      "tasks": 7,
+      "source": "hebbarskitchen.com"
+    },
+    "Rajma Masala": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "ranveerbrar.com"
+    },
+    "Sambar": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Sevai Upma": {
+      "status": "audited",
+      "tasks": 6,
+      "source": "hebbarskitchen.com"
+    },
+    "Sindhi Kadhi": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "ranveerbrar.com"
+    },
+    "Soft Idli": {
+      "status": "audited",
+      "tasks": 8,
+      "source": "hebbarskitchen.com"
+    },
+    "Tawa Vegetables": {
+      "status": "audited",
+      "tasks": 4,
+      "source": "hebbarskitchen.com"
+    },
+    "Punjabi Samosa": {
+      "status": "audited",
+      "tasks": 10,
+      "source": "ranveerbrar.com"
+    }
+  }
+}

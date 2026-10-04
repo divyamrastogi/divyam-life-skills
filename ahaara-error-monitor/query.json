@@ -1,0 +1,4 @@
+{
+  "kind": "HogQLQuery",
+  "query": "SELECT properties.error_type, properties.error_message, properties.context, properties.stack_trace, properties.is_flutter_error, count() as occurrences, max(timestamp) as last_seen, min(timestamp) as first_seen FROM events WHERE event = 'app_error' AND timestamp > '2026-04-12T15:56:00Z' GROUP BY properties.error_type, properties.error_message, properties.context, properties.stack_trace, properties.is_flutter_error ORDER BY occurrences DESC"
+}

@@ -1,0 +1,29 @@
+{
+  "_readme": "Copy to config.json next to this file and fill in real paths. config.json is machine-specific and must not be committed. The workbook lives with the house documents; statements/ledger stay in the statements folder.",
+  "workbook_local": "~/path/to/Household Expenses 2025-26.xlsx",
+  "workbook_drive": "~/Library/CloudStorage/GoogleDrive-YOU@gmail.com/My Drive/Family Documents/Home Purchase/Household Expenses 2025-26.xlsx",
+  "statements_root": "~/Library/CloudStorage/GoogleDrive-YOU@gmail.com/My Drive/Sync/Bank & Card Statements",
+  "ledger": "~/Library/CloudStorage/GoogleDrive-YOU@gmail.com/My Drive/Sync/Bank & Card Statements/ledger.json",
+  "sources": [
+    {
+      "folder": "Amex Statements",
+      "provider": "amex",
+      "who": "Divyam"
+    },
+    {
+      "folder": "HSBC Statements",
+      "provider": "hsbc",
+      "who": "Divyam"
+    },
+    {
+      "folder": "Barclaycard Statements A",
+      "provider": "barclays",
+      "who": "Deeksha"
+    },
+    {
+      "folder": "Barclaycard Statements B",
+      "provider": "barclays",
+      "who": "Divyam"
+    }
+  ]
+}

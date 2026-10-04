@@ -1,0 +1,9 @@
+{
+  "posthog_base_url": "https://eu.posthog.com",
+  "posthog_project_id": "135411",
+  "posthog_personal_api_key": "phx_<REDACTED-rotate-me>",
+  "poll_interval_hours": 1,
+  "lookback_hours": 2,
+  "min_occurrences_to_alert": 1,
+  "group_chat_id": "120363425113122951@g.us"
+}

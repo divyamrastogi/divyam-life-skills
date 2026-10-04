@@ -1,0 +1,3 @@
+{
+  "query": "SELECT properties.error_type, properties.error_message, properties.context, properties.stack_trace, properties.is_flutter_error, count() as occurrences, max(timestamp) as last_seen, min(timestamp) as first_seen FROM events WHERE event = \"app_error\" AND timestamp > now() - INTERVAL 2 HOUR GROUP BY properties.error_type, properties.error_message, properties.context, properties.stack_trace, properties.is_flutter_error ORDER BY occurrences DESC"
+}
