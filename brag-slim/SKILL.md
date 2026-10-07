@@ -99,3 +99,16 @@ Before the full render, look at stills from every scene *and* from mid-transitio
 - **Poster:** pull the strongest *settled* frame (text fully in, not mid-transition) to `brag.jpg`, and bake it in as frame 0 of `brag.mp4` so every platform's thumbnail shows it. Replace frame 0 rather than adding a frame, so the duration and audio sync stay the same.
 - **`share-copy.txt`:** 1–3 sentences, postable as-is, specific, matching the tone. No "excited to share."
 - **Tell the user** where the video and copy are, give one sentence on the creative angle, and offer to re-roll a scene or try another tone.
+
+## Render on this Mac (verified procedure)
+
+The creative rules above are machine-agnostic. This is the exact mechanics that work here — each step verified on the smart-video-controls launch video:
+
+1. **Draw the video as a self-contained HTML file** (all four tricks: CSS keyframes on a fixed 20-24s timeline, one `.scene` per storyboard beat). No external assets, no dev server.
+2. **Record with Playwright's `recordVideo`** (playwright lives in `$(npm root -g)` — pass `NODE_PATH=$(npm root -g)` or `require` fails):
+   - Open the page via **`file://` URL**, never `http://localhost` — HTTP servers started in exec sessions die at turn boundaries and the recording dies with `ERR_CONNECTION_REFUSED`.
+   - `recordVideo: { dir: '/tmp/brag-record', size: { width: 1280, height: 720 } }`, `waitForTimeout` = loop length + ~4s buffer, then `context.close()` to flush the webm.
+3. **Run the recording with exec `background: true`.** Foreground execs get killed at turn boundaries mid-recording — verified once: the mp4 came back truncated at 14.7s with "File ended prematurely". Background survives; write the result to a known path and check it next turn.
+4. **Convert and deliver:** `ffmpeg -i webm -c:v libx264 -pix_fmt yuv420p -movflags +faststart brag.mp4`, then hand it over with a `MEDIA:` path.
+
+Do not use the `video_generate` tool for these: Z.AI video returns `429 code 1113` ("insufficient balance or no resource package") on this account regardless of the `model` param — verified with both the default and `glm-5.3-flash`. It needs a paid video resource package; the HTML route needs nothing.
