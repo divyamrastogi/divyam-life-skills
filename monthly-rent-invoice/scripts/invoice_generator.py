@@ -65,6 +65,7 @@ LESSORS = [
         "bank": "HDFC Bank",
         "ifsc": "HDFC0009498",
         "account": "50100294995167",
+        "phone": "9557931157",
         "signature": "sig_deeksha.png",
     },
     {
@@ -75,6 +76,7 @@ LESSORS = [
         "bank": "ICICI BANK",
         "ifsc": "ICIC0003442",
         "account": "098401510126",
+        "phone": "9004709360",
         "signature": "sig_divyam.png",
     },
 ]
@@ -255,7 +257,7 @@ def build_pdf(out_path, lessor, invoice_no, date_str, desc):
     text(MX + 5, t + 46, OFFICE_ADDR_2, REG, 9)
     lbl(MX + 5, t + 58, "PAN: ", lessor["pan"], BOLD, BOLD)
     lbl(MX + 5, t + 70, "Email: ", lessor["email"])
-    lbl(MX + 5, t + 82, "Phone: ", PHONE, BOLD, BOLD)
+    lbl(MX + 5, t + 82, "Phone: ", lessor["phone"], BOLD, BOLD)
     lb = t + 90
     box(MX, t, RX, lb)
 
