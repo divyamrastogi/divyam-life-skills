@@ -79,7 +79,10 @@ it to the 14-month statement sheets would distort them).
 
 ## (cash-in) House (Golding House) — total money put into the house
 B # | C Item | D Detail | E Amount. Rows 5–9: initial deposit £100,000 (May
-24 — house acquired May 2024) · additional deposits £100,000 (to Oct 25 —
+24 — house acquired May 2024; SPLIT VERIFIED: £50,000 from Divyam's HSBC —
+23 Apr 24 £48,000 drawn from his own HSBC savings a/c •••5032 → 24 Apr 24
+£50,000 to conveyancers 'The Partnership' RAS0351; the other £50,000 is in
+no held statement) · additional deposits £100,000 (to Oct 25 —
 £54,502 VERIFIED as Halifax overpayments: £12,000 Jun 24 + £8,998 Aug 24 +
 £2,000+£100 Jan 25 + £5,000+£1,000+£5,000 Mar 25 + £5,000 May & Jun 25 +
 £3,000 Jul 25 + £5,000 Aug 25 via HSBC (Divyam)/Halifax stmt, + £2,404 on
