@@ -173,8 +173,10 @@ level additions — ledger.json mirrors parsed statements only.
 
 ## Companion file — 'House Cash Contributions 2024-26.xlsx'
 Lives beside the main workbook (workspace + Drive Home Purchase). Tabs:
-Attribution (capital totals: Divyam £133,553.16 · Deeksha £89,524.96
-documented + £5,100 payer-unseen · £600 unattributed · total £228,778.12,
+Attribution (capital totals after the owner-instructed reattribution of
+her £18,150 'Hubby' transfers — Section F, offset to £0: Divyam £115,403.16 ·
+Deeksha £89,524.96 direct + £18,150 transfers + £5,100 payer-unseen =
+£112,774.96 · £600 unattributed · total £228,778.12,
 furniture deliberately excluded) · Item detail (every capital item with
 payer/basis/evidence) · Running costs (council tax + RMG + ground rent +
 insurance by payer: Deeksha £9,266.62 observed vs Divyam £2,039.58, plus
