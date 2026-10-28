@@ -90,15 +90,15 @@ not from his accounts — + ~£5,881 IMPLIED overpayments Nov 25–Mar 26:
 Halifax redeemed £302,527.55, ~£5,881 below the no-overpayment amortization
 path. NOTE: the old £100,000 figure from loan sizes double-counted ~£36,840
 of DD principal already in the payment rows — corrected Oct 26; total cash
-in ≈£260,960 → ≈£231,770) · mortgage Jun 24–Jul 25 VERIFIED £32,184.00 ·
+in ≈£260,960 → ≈£232,888) · mortgage Jun 24–Jul 25 VERIFIED £32,184.00 ·
 mortgage Aug 25–Aug 26 VERIFIED £22,510.59 (8 × £1,922.97 incl. the
 previously-missed 1 Aug 25 + £2,256.13 Apr 26 − £2,256.13 refunded 14 Apr
 26 + £1,804.47 + 3 × £1,774.12) · one-offs & furniture = live ref
 `='(one-off) House (Golding House)'!F19`. TOTAL row 10 `=SUM(E5:E9)`
 ≈ £231,770.17. Attribution note on sheet: Divyam £133,553 documented ·
-Deeksha £76,526 documented + ~£16,981 inferred (her Premier statements
-Dec 24–May 25 + Nov 25–Apr 26 would confirm) · £4,710 unattributed
-(£600 on-account + £4,110 furniture). New mortgage: HSBC £300,000 from
+Deeksha £89,525 documented (13 Premier stmts Mar 25–Apr 26, in
+Sync/HSBC Deeksha) + £5,100 payer-unproven (her savings stmts would
+settle) · £600 unattributed (on-account). New mortgage: HSBC £300,000 from
 1 Apr 26, 2-yr fix 3.68% to 28/02/28, £999 fee, term shortened →
 £1,774.12/mo. Remortgage docs: `Family Documents/Home Purchase/Mortgage
 2026/` (Optima completion statement + title letter); purchase pack:
@@ -112,14 +112,14 @@ Summary table rows 5–11 (Category | # tx | Subtotal, live refs to the detail
 subtotal rows). Detail from row 14: per-category bold header, chronological
 tx rows (B # | C Date | D Description | E Source | F Amount), per-category
 Subtotal `=SUM`, grand TOTAL = sum of subtotal cells. Six categories:
-Mortgage & prepayments £109,196.59 (40 tx — 26 DDs net of the 14 Apr 26
-refund −£2,256.13, + 4 Halifax deposit transfers £27,998, + 8 WORKBOOK-LEVEL
-overpayment rows £26,504 sourced from the Halifax annual statement (07 Jan 25
-£100, 10 Mar £5,000, 21 Mar £1,000, 28 Mar £5,000, 27 May £5,000, 16 Jun
-£5,000, 30 Jul £3,000) + HSBC (Deeksha) 06 Oct 25 £2,404 — these rows are
-NOT in ledger.json) · Ground rent £1,319.69 (5 tx: £187.50 × 3 + £382.19 +
+Mortgage & prepayments £116,195.59 (43 tx — 26 DDs net of the 14 Apr 26
+refund −£2,256.13, + 4 Halifax deposit transfers £27,998, + 11 WORKBOOK-LEVEL
+overpayment rows £33,503 NOT in ledger.json: Halifax stmt £100 (07 Jan 25) +
+£5,000 (10 Mar, payer a/c not held) + £1,000 + £5,000 (Mar 25) + £5,000×2 +
+£3,000 (May–Jul 25); HSBC (Deeksha) stmts £2,404 (06 Oct 25), £1,999 (31 Oct
+25), £2,000 (01 Jan 26), £3,000 (01 Mar 26)) · Ground rent £1,319.69 (5 tx: £187.50 × 3 + £382.19 +
 £375) · Service charge RMG £6,244.58 · Works £765.57 · Council tax £3,517.89
-· Home insurance £224.04. TOTAL £121,268.36 (61 tx, Jun 24–Aug 26; HSBC
+· Home insurance £224.04. TOTAL £128,267.36 (64 tx, Jun 24–Aug 26; HSBC
 statements cover from Jun 24, cards from May 25). Rebuild from the ledger
 using merchant patterns (HALIFAX/MTG/MORTGAGE REFUND, BERKELEY, RMG,
 ELECMEC/ANJALI, BARNET, UINSURE); re-add the 8 document-sourced overpayment
