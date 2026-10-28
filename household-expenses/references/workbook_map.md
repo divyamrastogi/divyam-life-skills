@@ -78,29 +78,33 @@ Mirror rule: statement-window one-offs ALSO go to 'One-off Expenses' row 8 +
 it to the 14-month statement sheets would distort them).
 
 ## (cash-in) House (Golding House) — total money put into the house
-B # | C Item | D Detail | E Amount. Rows 5–9: initial deposit £100,000 (May
-24 — house acquired May 2024; SPLIT SETTLED: £50,000 from Divyam — 23 Apr 24
-£48,000 drawn from his own HSBC savings a/c •••5032 → 24 Apr 24 £50,000 to
-conveyancers 'The Partnership' RAS0351; £50,000 from Deeksha, owner-
-confirmed — his HSBC Expat Jersey a/c (statement dated 24 May 24, window 25 Apr–
-24 May spanning completion: static £9,616.26, zero transactions) ruled out) · additional deposits
-£100,000 (to Oct 25 —
-£54,502 VERIFIED as Halifax overpayments: £12,000 Jun 24 + £8,998 Aug 24 +
-£2,000+£100 Jan 25 + £5,000+£1,000+£5,000 Mar 25 + £5,000 May & Jun 25 +
-£3,000 Jul 25 + £5,000 Aug 25 via HSBC (Divyam)/Halifax stmt, + £2,404 on
-06 Oct 25 via HSBC (Deeksha); balance trajectory verified: £400,000 at
-outset (02 May 24) → £314,542.54 (02 Oct 25, Halifax stmt) → £312,138.54 →
-£300,000 at the Apr 26 remortgage) · mortgage Jun 24–Jul 25 VERIFIED
-£32,184.00 (14 payments: £3,738.43 first + 11 × £2,236.33 + 2 × £1,922.97 —
-estimate retired) · mortgage Aug 25–Aug 26 VERIFIED £22,510.59 (8 ×
-£1,922.97 incl. the previously-missed 1 Aug 25 + £2,256.13 Apr 26 −
-£2,256.13 refunded 14 Apr 26 + £1,804.47 + 3 × £1,774.12) · one-offs &
-furniture = live ref `='(one-off) House (Golding House)'!F19`. TOTAL row 10
-`=SUM(E5:E9)` ≈ £260,960.16 (overpayments counted once, inside the £100k
-deposits line). Mortgage rate history (verified): £3,738.43 first payment
-Jun 24 → £2,236.33/mo (Jul 24–May 25) → £1,922.97/mo (Jun 25–Mar 26) →
-£2,256.13 final old payment Apr 26 (refunded 14 Apr 26) → remortgage May 26
-£1,804.47 first → £1,774.12/mo from Jun 26.
+B # | C Item | D Detail | E Amount. Rows 5–9: initial cash £107,741.01
+(DOCUMENTED by The Partnership purchase statement 03.05.24: £50,000 deposit
+funds from Divyam (24 Apr 24: £48k from his own savings •••5032; expat a/c
+ruled out — static £9,616, window spans completion) + £57,141.01 completion
+funds from Deeksha — her £50k deposit + ~£7,141 purchase costs — + £600 on
+account (source unrecorded); £400,000 advance vs £500,000 price,
+LR-confirmed) · additional capital £63,069 (£54,502 verified overpayments +
+£2,685.95 client funds at the 1 Apr 26 completion per the Optima statement —
+not from his accounts — + ~£5,881 IMPLIED overpayments Nov 25–Mar 26:
+Halifax redeemed £302,527.55, ~£5,881 below the no-overpayment amortization
+path. NOTE: the old £100,000 figure from loan sizes double-counted ~£36,840
+of DD principal already in the payment rows — corrected Oct 26; total cash
+in ≈£260,960 → ≈£231,770) · mortgage Jun 24–Jul 25 VERIFIED £32,184.00 ·
+mortgage Aug 25–Aug 26 VERIFIED £22,510.59 (8 × £1,922.97 incl. the
+previously-missed 1 Aug 25 + £2,256.13 Apr 26 − £2,256.13 refunded 14 Apr
+26 + £1,804.47 + 3 × £1,774.12) · one-offs & furniture = live ref
+`='(one-off) House (Golding House)'!F19`. TOTAL row 10 `=SUM(E5:E9)`
+≈ £231,770.17. Attribution note on sheet: Divyam £133,553 documented ·
+Deeksha £76,526 documented + ~£16,981 inferred (her Premier statements
+Dec 24–May 25 + Nov 25–Apr 26 would confirm) · £4,710 unattributed
+(£600 on-account + £4,110 furniture). New mortgage: HSBC £300,000 from
+1 Apr 26, 2-yr fix 3.68% to 28/02/28, £999 fee, term shortened →
+£1,774.12/mo. Remortgage docs: `Family Documents/Home Purchase/Mortgage
+2026/` (Optima completion statement + title letter); purchase pack:
+`Family Documents/Apartments/Golding House/` (RAS0351 — financial
+statement + The Partnership portal dump with older evidence: 2023 payslips,
+brokerage + HSBC/Expat statements Oct–Dec 23).
 Update row 4 each month a new mortgage DD lands in the ledger.
 
 ## (all tx) House (Golding House) — every house transaction + subtotals
