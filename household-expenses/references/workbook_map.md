@@ -82,8 +82,8 @@ B # | C Item | D Detail | E Amount. Rows 5–9: initial deposit £100,000 (May
 24 — house acquired May 2024; SPLIT SETTLED: £50,000 from Divyam — 23 Apr 24
 £48,000 drawn from his own HSBC savings a/c •••5032 → 24 Apr 24 £50,000 to
 conveyancers 'The Partnership' RAS0351; £50,000 from Deeksha, owner-
-confirmed — his HSBC Expat Jersey a/c (static £9,616, zero transactions in
-the completion quarter) independently ruled out) · additional deposits
+confirmed — his HSBC Expat Jersey a/c (statement dated 24 May 24, window 25 Apr–
+24 May spanning completion: static £9,616.26, zero transactions) ruled out) · additional deposits
 £100,000 (to Oct 25 —
 £54,502 VERIFIED as Halifax overpayments: £12,000 Jun 24 + £8,998 Aug 24 +
 £2,000+£100 Jan 25 + £5,000+£1,000+£5,000 Mar 25 + £5,000 May & Jun 25 +
