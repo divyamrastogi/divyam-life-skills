@@ -171,6 +171,17 @@ Purchase/Mortgage 2026/Deeksha/`), Barnet council tax bill 25/26. Notes
 13–16 (merged B:F) incl. the rule that document-sourced rows are workbook-
 level additions — ledger.json mirrors parsed statements only.
 
+## Companion file — 'House Cash Contributions 2024-26.xlsx'
+Lives beside the main workbook (workspace + Drive Home Purchase). Tabs:
+Attribution (capital totals: Divyam £133,553.16 · Deeksha £89,524.96
+documented + £5,100 payer-unseen · £600 unattributed · total £228,778.12,
+furniture deliberately excluded) · Item detail (every capital item with
+payer/basis/evidence) · Running costs (council tax + RMG + ground rent +
+insurance by payer: Deeksha £9,266.62 observed vs Divyam £2,039.58, plus
+~£6,212 of 2024/25 estimated pending Deeksha's pre-Jul-25 card statements —
+her Avios Plus card is new ~Jun 25; NOT his HSBC/Amex). Keep in lockstep
+with the main workbook whenever capital items change.
+
 ## QA before every sync
 ```bash
 python3 -c "from openpyxl import load_workbook; wb=load_workbook('<file>');
