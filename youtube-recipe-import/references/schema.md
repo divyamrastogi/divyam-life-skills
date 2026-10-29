@@ -112,8 +112,9 @@ get_ing('slug')  -- returns ingredient UUID by slug
 
 ```sql
 -- Recipe
-INSERT INTO recipes (id, name, slug, description, cuisine_type, diet_type, difficulty, total_time_minutes, active_time_minutes, servings, tips)
-VALUES ('...', 'Recipe Name', 'recipe-slug', 'Description.', 'indian', 'vegetarian', 'medium', 30, 20, 4, 'Tips here.');
+INSERT INTO recipes (id, name, slug, description, cuisine_type, diet_type, difficulty, total_time_minutes, active_time_minutes, servings, tips, source_url)
+VALUES ('...', 'Recipe Name', 'recipe-slug', 'Description.', 'indian', 'vegetarian', 'medium', 30, 20, 4, 'Tips here.',
+        'https://<same URL as the -- Source: header>');  -- source_url is REQUIRED: the cover pipeline keys off it
 
 -- Ingredients (full shopping list — UNIQUE per recipe_id+ingredient_id)
 INSERT INTO recipe_ingredients (recipe_id, ingredient_id, quantity_value, quantity_unit, quantity_text, is_optional, notes) VALUES

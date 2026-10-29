@@ -139,6 +139,7 @@ Recipe NNN (3-digit, zero-padded):
 - `recipe_ingredients`: ONE row per unique ingredient. Same ingredient in multiple phases → combine quantities, add `notes`
 - `task_ingredients`: per-step quantities; same ingredient OK in different tasks
 - Embed `{{ingredient-slug}}` in task descriptions — renderer replaces with "[qty] IngredientName"
+- **`source_url` — HARD RULE**: the `INSERT INTO recipes (...)` column list MUST include `source_url`, set to the exact same URL as the `-- Source:` header. The header comment alone does nothing — 14 recipes landed on prod with `source_url = NULL` and no cover because of this (fixed by migration `00083_backfill_source_urls_round3.sql`). The cover pipeline (next steps) keys off this column, so a missing `source_url` = a recipe with no image in the app.
 - **NO amounts in step description text — HARD RULE**: amounts (numeric or parenthetical: `(80g)`, `1/2 tsp`, `2 medium`) must NEVER appear in `phase_tasks.description`. Every amount goes ONLY in a `task_ingredients` row referenced by its `{{slug}}` placeholder — the renderer injects the quantity. Hardcoded amounts don't scale with servings (prod cleanup: migration `00064_strip_stale_step_paren_amounts.sql`).
   - ❌ BAD: `'Whisk {{curd}} (80g) until smooth.'` or `'Add 1/2 tsp {{chili-flakes}}.'`
   - ✅ GOOD: `'Whisk {{curd}} until smooth.'` + `task_ingredients` row `(task_id, get_ing('curd'), 'whisk', 80, 'g', NULL)`
@@ -167,18 +168,10 @@ If not running: `cd ~/projects/souschef && npx supabase start`
 
 **Remote (project ref: `yrabrnnahllogoysdvwi`):**
 ```bash
-python3 -c "
-import json
-with open('/Users/deeksharastogi/projects/souschef/supabase/seed_<recipe-slug>_<NNN>.sql') as f:
-    print(json.dumps({'query': f.read()}))
-" > /tmp/seed_payload.json
-
-curl -s -X POST "https://api.supabase.com/v1/projects/yrabrnnahllogoysdvwi/database/query" \
-  -H "Authorization: Bearer sbp_b5d2dd1d2133068035f5c7f7d3e35aa66e12cd25" \
-  -H "Content-Type: application/json" \
-  --data @/tmp/seed_payload.json
+cd /Users/deeksharastogi/projects/souschef && supabase db query --linked --project-ref yrabrnnahllogoysdvwi \
+  -f supabase/seed_<recipe-slug>_<NNN>.sql
 ```
-Success = `[]`.
+Success = `{"rows": []}` and no `"_tag": "Error"` in the output. (The Management-API token used here before is expired; the CLI is logged in — `supabase login` if it ever complains.)
 
 **Common errors:**
 - `null value in column "ingredient_id"` → missing slug; add `ensure_ingredient()` at top
@@ -208,19 +201,41 @@ psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -c "
 
 Also quick-check remote:
 ```bash
-python3 -c "import json; print(json.dumps({'query': \"SELECT name, total_time_minutes FROM recipes WHERE slug = '<recipe-slug>'\"}))" > /tmp/q.json
-curl -s -X POST "https://api.supabase.com/v1/projects/yrabrnnahllogoysdvwi/database/query" \
-  -H "Authorization: Bearer sbp_b5d2dd1d2133068035f5c7f7d3e35aa66e12cd25" \
-  -H "Content-Type: application/json" --data @/tmp/q.json
+cd /Users/deeksharastogi/projects/souschef && supabase db query --linked --project-ref yrabrnnahllogoysdvwi "SELECT name, total_time_minutes, source_url, cover_image_url FROM recipes WHERE slug = '<recipe-slug>'"
 ```
 
 ---
 
-### Step 9 — Commit & Push
+### Step 9 — Fetch the Cover Image (required)
+
+Every recipe needs a cover photo or it renders as a grey gradient in the app. The repo's cover pipeline fetches one from `source_url` (og:image for recipe pages, maxres thumbnail for YouTube, a late frame for Instagram reels), normalizes it, uploads it to the `recipe-images` bucket and sets `recipes.cover_image_url` on prod.
+
+```bash
+cd /Users/deeksharastogi/projects/souschef && python3 scripts/recipe_media/fetch_covers.py --only <recipe-slug>
+```
+Expect `[done] processed=1 uploaded=1 failed=0`. Needs `scripts/recipe_media/.service_key` (gitignored, present in the main checkout — copy it into a worktree if you run from one) plus `yt-dlp` + `ffmpeg` for reels.
+
+**Then look at the image before you report it.** Heuristics pick the wrong frame often enough (creator's face, closed pot lid, a site logo):
+```bash
+curl -s -o /tmp/cover.jpg "https://yrabrnnahllogoysdvwi.supabase.co/storage/v1/object/public/recipe-images/covers/<recipe-slug>.jpg"
+```
+View `/tmp/cover.jpg`. It must show the finished dish.
+- Wrong frame from an Instagram reel → add the slug to `IG_FRAME_FRACTION` (where in the reel the plated shot is, 0–1) and/or `IG_FRAME_CROP_BOTTOM` (talking-head reels: keep the bottom fraction of the frame) in `scripts/recipe_media/fetch_covers.py`, then re-run with `--force`.
+- No usable dish photo at the source at all → add the slug to `SKIP_SLUGS` with the reason, null the cover (`UPDATE recipes SET cover_image_url = NULL WHERE slug = '<recipe-slug>'` via the CLI above, and delete `covers/<recipe-slug>.jpg` from the bucket), and tell Divyam the recipe needs a photo. **Null beats wrong.**
+
+Confirm on prod:
+```bash
+cd /Users/deeksharastogi/projects/souschef && supabase db query --linked --project-ref yrabrnnahllogoysdvwi "SELECT slug, source_url, cover_image_url FROM recipes WHERE slug = '<recipe-slug>'"
+```
+Both columns must be non-null (unless you deliberately nulled the cover above).
+
+---
+
+### Step 10 — Commit & Push
 
 ```bash
 cd ~/projects/souschef
-git add supabase/seed_<recipe-slug>_<NNN>.sql
+git add supabase/seed_<recipe-slug>_<NNN>.sql scripts/recipe_media/cover_progress.json scripts/recipe_media/cover_failures.json
 git commit -m "recipe: import <recipe-name> (#<NNN>) [skip ci]"
 git push origin <current-branch>
 ```
@@ -232,12 +247,13 @@ cd ~/clawd/skills && git add . && git commit -m "skill: update recipe-video-impo
 
 ---
 
-### Step 10 — Report Back to Divyam
+### Step 11 — Report Back to Divyam
 
 - Recipe name + slug
 - Source URL + creator
 - Ingredient count, phase count, task count
 - Confirmed on local + remote
+- Cover image: the public URL (after eyeballing it), or "needs photo" + why
 - Any ingredients that were newly added to the DB
 
 ---
