@@ -96,8 +96,9 @@ previously-missed 1 Aug 25 + £2,256.13 Apr 26 − £2,256.13 refunded 14 Apr
 26 + £1,804.47 + 3 × £1,774.12) · one-offs & furniture = live ref
 `='(one-off) House (Golding House)'!F19`. TOTAL row 10 `=SUM(E5:E9)`
 ≈ £231,770.17. Attribution note on sheet: Divyam £133,553 documented ·
-Deeksha £89,525 documented (13 Premier stmts Mar 25–Apr 26, in
-Sync/HSBC Deeksha) + £5,100 payer-unproven (her savings stmts would
+Deeksha £89,525 documented (16 Premier stmts Dec 24–Apr 26 +
+Aug 24, in Sync/HSBC Deeksha; her current a/c ruled out for both
+pending items — savings presumed payer) + £5,100 payer-unproven (her savings stmts would
 settle) · £600 unattributed (on-account). New mortgage: HSBC £300,000 from
 1 Apr 26, 2-yr fix 3.68% to 28/02/28, £999 fee, term shortened →
 £1,774.12/mo. Remortgage docs: `Family Documents/Home Purchase/Mortgage
