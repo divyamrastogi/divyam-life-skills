@@ -38,6 +38,8 @@ If a thin recipe is found:
 
 **Rule:** If a recipe can't be found on any of these 4 sources → **delete it from the DB.**
 
+**Exempt:** rows with `source_kind = 'user_import'` are user-submitted via the in-app link import and reviewed by Divyam in the Admin tab. Never delete them from this audit; filter them out of every query with `AND source_kind = 'curated'`.
+
 Source must be verifiable (URL must exist and contain the recipe). Existence on a site is enough — the recipe doesn't have to be re-imported unless Divyam requests it.
 
 ---
