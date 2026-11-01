@@ -28,6 +28,7 @@ Standing requirement (Divyam): when asked to install a skill, install it for **a
 - ~/.claude/skills relative symlinks resolve from ~/.claude/skills/: use ../../.agents/skills/<name> (two levels up). ../.agents/... is one level short and silently breaks in Claude Code. Absolute paths never break; prefer them.
 - After ANY symlink work, run a SKILL.md-resolution loop over all three agent dirs — dangling links make ln fail with "File exists" while still existing as broken links.
 - cp -R src/ dest/ (trailing slash) dumps source CONTENTS into dest root — after bulk copies, check git status and remove strays at the repo root.
+- On THIS Mac, ~/.zcode/skills IS ~/clawd/skills (bind-mounted same dir). Never run ln targeting ~/.zcode/skills/<name> — it creates an inner self-symlink inside the repo. zcode sees repo changes with zero links.
 - install.sh at the repo root is the public one-command installer for OTHER machines — never run it on this Mac (it repoints symlinks to a static clone; this machine develops skills live in ~/clawd/skills).
 - Upstream suites that duplicate existing skills: vendor as a complete family (all skills, shared conventions inlined) — partial copies break internal references.
 
