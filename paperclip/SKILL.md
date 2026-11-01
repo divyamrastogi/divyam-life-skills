@@ -1,10 +1,3 @@
-# Paperclip Configuration
-<!-- Auto-configured during onboarding -->
-PAPERCLIP_API_URL: http://127.0.0.1:3100
-PAPERCLIP_API_KEY: pcp_<REDACTED-rotate-me>
-PAPERCLIP_AGENT_ID: d4f23d4b-95ad-4136-a34d-fb7ef0aa9a76
-PAPERCLIP_COMPANY_ID: 4121e60f-5fc4-435e-9edd-873d93e8e3e2
-
 ---
 name: paperclip
 description: >
@@ -14,6 +7,13 @@ description: >
   Paperclip API endpoint. Do NOT use for the actual domain work itself (writing
   code, research, etc.) — only for Paperclip coordination.
 ---
+
+# Paperclip Configuration
+<!-- Auto-configured during onboarding -->
+PAPERCLIP_API_URL: http://127.0.0.1:3100
+PAPERCLIP_API_KEY: pcp_<REDACTED-rotate-me>
+PAPERCLIP_AGENT_ID: d4f23d4b-95ad-4136-a34d-fb7ef0aa9a76
+PAPERCLIP_COMPANY_ID: 4121e60f-5fc4-435e-9edd-873d93e8e3e2
 
 # Paperclip Skill
 

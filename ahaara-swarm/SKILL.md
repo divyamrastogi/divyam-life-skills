@@ -1,6 +1,6 @@
 ---
 name: ahaara-swarm
-description: Agent swarm orchestration for the Ahaara (SousChef) codebase. Use when Divyam asks (incl. via the Ahaara Dev Bot WhatsApp group) to implement a feature, fix a bug, write tests, or refactor code in the Ahaara Flutter app. Jarvis (OpenClaw, running GLM-5.2) orchestrates and verifies; Claude executes the coding via `claude -p`.
+description: Agent swarm orchestration for the Ahaara (SousChef) codebase. Use when Divyam asks (incl. via the Ahaara Dev Bot WhatsApp group) to implement a feature, fix a bug, write tests, or refactor code in the Ahaara Flutter app. Jarvis (OpenClaw, running its configured GLM model) orchestrates and verifies; Claude executes the coding via `claude -p`.
 ---
 
 # Ahaara Agent Swarm
@@ -9,15 +9,15 @@ Jarvis is the orchestrator. You spawn, monitor, verify, and manage Claude Code e
 
 ## Who does what (model routing)
 
-**You (OpenClaw) stay on your default model — GLM-5.2.** Claude is NOT your model; it is a
+**You (OpenClaw) stay on your default model** — whatever `agents.defaults.model` sets in `~/.openclaw/openclaw.json` (a z.ai GLM model). Claude is NOT your model; it is a
 CLI subprocess you *delegate to* for souschef coding. The split:
 
 | Role | Who | How |
 |------|-----|-----|
-| Orchestrate, plan, scope, route | **OpenClaw / GLM-5.2** (you) | directly |
+| Orchestrate, plan, scope, route | **OpenClaw / GLM** (you) | directly |
 | **All souschef code changes + writing tests** | **Claude** | `claude -p` (light path or swarm — see threshold) |
-| Verify: run app, computer-use, video recording, integration tests | **OpenClaw / GLM-5.2** (you) | your skills (`flutter-integration-testing`, `flutter-performance-profiling`, computer-use) |
-| WhatsApp I/O (receive request, report result) | **OpenClaw / GLM-5.2** (you) | Ahaara Dev Bot group |
+| Verify: run app, computer-use, video recording, integration tests | **OpenClaw / GLM** (you) | your skills (`flutter-integration-testing`, `flutter-performance-profiling`, computer-use) |
+| WhatsApp I/O (receive request, report result) | **OpenClaw / GLM** (you) | Ahaara Dev Bot group |
 
 Rule of thumb: **if it writes Dart/SQL/test code in souschef, hand it to Claude. Everything else is you.**
 

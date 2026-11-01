@@ -1,3 +1,8 @@
+---
+name: ahaara-error-monitor
+description: Monitor and triage Ahaara Flutter app errors by polling PostHog app_error events, deduplicating and classifying them, auto-fixing simple errors, and flagging complex ones to Divyam for a decision. Use when checking Ahaara errors, crash trends, or running the error monitor pipeline.
+---
+
 # Ahaara Error Monitor Skill
 
 Proactive error monitoring pipeline for the Ahaara Flutter app.

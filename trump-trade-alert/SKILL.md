@@ -1,3 +1,8 @@
+---
+name: trump-trade-alert
+description: Monitor Trump's statements, executive orders, and policy moves for market impact and send concise, actionable stock and sector alerts to the Trader Bot WhatsApp group. Use when running a Trump trade check or when policy news may affect markets.
+---
+
 # Trump Trade Alert
 
 Monitors Trump's public statements, executive orders, and policy moves for market impact. Identifies affected stocks/sectors and sends actionable alerts.
