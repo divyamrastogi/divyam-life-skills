@@ -54,3 +54,16 @@ If the **rent changes**, edit `RENT_HALF` / `ROUND_OFF` / `TOTAL` at the top of 
 - Output is non-editable by design — to change the month, re-run the script rather than editing the PDF.
 - Bill-to GSTIN `09AABCN7953M1ZT` (Noida premises; updated 2026-09-10 per Divyam, checksum-verified — the old 19AABCN7953M1ZS Kolkata one is outdated).
 - Signatures (`scripts/sig_deeksha.png`, `scripts/sig_divyam.png`) are transparent PNGs and must stay alongside the script.
+
+## Email to Emami (monthly pattern — from Oct 2026 sent mail)
+- To: samajit.mondal@emamiagrotech.com
+- Subject: `Rental Invoice for month of <Month>, <Year> for Wave One Office`
+- Body pattern:
+  Hello Team Emami Agrotech!
+  (blank line) I hope this email finds you well.
+  (blank line) I am attaching the monthly rental invoices for the month of <Month>, <Year> for the office address:
+  Silver Office, Unit No. 10, 31st Floor, Wave One, Sector-18, Noida – 201301
+  (blank line) Two invoices are attached — one each from the lessors: • <pdf names>
+  (blank line) Cheers, Divyam Rastogi
+- Attach both PDFs. Save as Gmail DRAFT via gmail-direct skill. NEVER send without Divyam's explicit go-ahead.
+- Monthly automation: cron "5 9 1 * *" Europe/London (job: Emami Rent Invoices).
