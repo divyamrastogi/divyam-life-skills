@@ -65,5 +65,6 @@ If the **rent changes**, edit `RENT_HALF` / `ROUND_OFF` / `TOTAL` at the top of 
   Silver Office, Unit No. 10, 31st Floor, Wave One, Sector-18, Noida – 201301
   (blank line) Two invoices are attached — one each from the lessors: • <pdf names>
   (blank line) Cheers, Divyam Rastogi
+- Cc (exact list from prior months): Samantha Dutta <samantha.dutta@emamiagrotech.com>, Tapas Kumar Mukherjee <tapas.mukherjee@emamiagrotech.com>, Deeksha Rastogi <deek.rastogi94@gmail.com>, Aniruddha Banerjee <aniruddha.banerjee@emamiagrotech.com>
 - Attach both PDFs. Save as Gmail DRAFT via gmail-direct skill. NEVER send without Divyam's explicit go-ahead.
 - Monthly automation: cron "5 9 1 * *" Europe/London (job: Emami Rent Invoices).
