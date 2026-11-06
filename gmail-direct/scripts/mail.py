@@ -59,7 +59,7 @@ def cmd_draft(to, subject, body):
     m = connect()
     msg = EmailMessage(); msg["From"] = USER; msg["To"] = to; msg["Subject"] = subject
     msg.set_content(body)
-    m.append("Drafts", None, None, msg.as_bytes())
+    m.append('"[Gmail]/Drafts"', None, None, msg.as_bytes())
     print(f"DRAFT saved → {to} | {subject}")
     m.logout()
 
