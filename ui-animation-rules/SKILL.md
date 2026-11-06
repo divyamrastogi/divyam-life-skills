@@ -1,6 +1,6 @@
 ---
 name: ui-animation-rules
-description: "MUST load before writing ANY UI code — mobile or web (HTML/CSS/JS, React, Next.js, Flutter, Swift, Android). The 20 animation rules for beautiful, polished UI motion: easing, stagger, presses, popovers, exits, masks, crossfades, rubber-banding, shared-element transitions — plus the concentric border-radius nesting rule. Apply proactively and automatically; never wait to be asked. Companion to interface-design-rules (layout/type/color)."
+description: "MUST load before writing ANY UI code — mobile or web (HTML/CSS/JS, React, Next.js, Flutter, Swift, Android). The 20 animation rules for beautiful, polished UI motion: easing, stagger, presses, popovers, exits, masks, crossfades, rubber-banding, shared-element transitions — plus the concentric border-radius nesting rule and 20 UX polish patterns (skeletons, optimistic updates, command menu, undo toasts, view transitions, hit slop, tabular numbers and more). Apply proactively and automatically; never wait to be asked. Companion to interface-design-rules (layout/type/color)."
 ---
 
 # UI Animation Rules — The 20 Rules for Beautiful UI Motion
@@ -65,6 +65,31 @@ Frequently-opened menus: skip the open animation, animate the close only.
 ## Geometry & radii (static, not motion)
 
 **Concentric corner rule** — when a rounded element (button, input, thumbnail) sits inside a rounded container (card, sheet), the corners must nest: **`outer radius = inner radius + padding`**. Example: card padding 8px + button radius 20px → card radius 28px. Equal radii on nested elements look subtly "off" — the inner corner bulges against the outer curve. Nest it right and everything looks clean and intentional. Applies to all platforms (CSS `border-radius`, Flutter `BorderRadius`, SwiftUI `cornerRadius`).
+
+## 20 UX polish patterns (apply when relevant, not just motion)
+
+1. **Skeleton loaders** — shape-matching placeholders instead of spinners; no layout shift when data lands.
+2. **Optimistic updates** — render the result immediately, roll back on failure (likes, toggles, reorders).
+3. **Command menu** — ⌘K/Ctrl+K palette for navigation and actions in any app with >5 destinations.
+4. **Shortcut hints** — show the keyboard shortcut inside tooltips/menu items.
+5. **Undo toasts** — destructive actions get a toast with Undo (5–10s); never a confirm() dialog.
+6. **Stale-while-revalidate** — show cached data instantly, refresh in background, swap when fresh.
+7. **Pre-rendering** — prefetch/predict the likely next screen (hover, route idle, list-adjacent items).
+8. **BlurHash placeholders** — tiny blurred hash for images before load; never an empty grey box.
+9. **View transitions** — animate route/page changes (View Transitions API / shared elements), not hard cuts.
+10. **Swipe-to-dismiss sheets** — drag down/back to close; velocity-based, matches gesture.
+11. **Interruptible animations** — user input cancels/reverses mid-flight; never lock the UI while animating.
+12. **Predictive back** — Android/iOS back-gesture preview animates the actual destination state.
+13. **Hit slop** — touch targets ≥44×44pt; enlarge the tappable area beyond the visual icon (~8–12px).
+14. **Safe area insets** — respect notches/home bars/keyboards via env(safe-area-inset-*) / SafeArea widgets.
+15. **One-time code autofill** — OTP fields declare `autocomplete="one-time-code"` (web) / `oneTimeCode` content type (iOS) for SMS autofill.
+16. **Tabular numbers** — `font-variant-numeric: tabular-nums` for any changing/aligned figures (prices, timers, tables).
+17. **Balanced headlines** — `text-wrap: balance` on headings; no orphaned last words.
+18. **Continuous corners** — iOS-style smooth corner curvature (squircles) on nested/adjacent rounded elements.
+19. **Idempotency keys** — every submit/network action carries an idempotency key; double-tap can't double-charge.
+20. **Amazon safe triangle** — dropdowns/submenus navigable without crossing off the trigger (pointer-triangle hit region, or add a 150–300ms hover delay before closing).
+
+Apply these as defaults when building: loaders → skeletons, mutations → optimistic + undo, forms → autofill + idempotency, data views → stale-while-revalidate + tabular nums, navigation → command menu + view transitions.
 
 ## Self-invocation contract
 This skill applies AUTOMATICALLY whenever generating, modifying, or reviewing: HTML/CSS/JS, React/Next/Vue components, Flutter widgets, SwiftUI/Compose views, landing pages, dashboards, emails with styling, or any file containing transitions/animations. If you notice UI work in progress without these rules applied, retrofit them before finishing.
