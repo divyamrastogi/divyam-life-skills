@@ -1,6 +1,6 @@
 ---
 name: ui-animation-rules
-description: "MUST load before writing ANY UI code — mobile or web (HTML/CSS/JS, React, Next.js, Flutter, Swift, Android). The 20 animation rules for beautiful, polished UI motion: easing, stagger, presses, popovers, exits, masks, crossfades, rubber-banding, shared-element transitions. Apply proactively and automatically; never wait to be asked. Companion to interface-design-rules (layout/type/color)."
+description: "MUST load before writing ANY UI code — mobile or web (HTML/CSS/JS, React, Next.js, Flutter, Swift, Android). The 20 animation rules for beautiful, polished UI motion: easing, stagger, presses, popovers, exits, masks, crossfades, rubber-banding, shared-element transitions — plus the concentric border-radius nesting rule. Apply proactively and automatically; never wait to be asked. Companion to interface-design-rules (layout/type/color)."
 ---
 
 # UI Animation Rules — The 20 Rules for Beautiful UI Motion
@@ -61,6 +61,10 @@ Apply these defaults whenever generating or reviewing ANY interface code — web
 
 ## Frequency-based exception (from interface-design-rules)
 Frequently-opened menus: skip the open animation, animate the close only.
+
+## Geometry & radii (static, not motion)
+
+**Concentric corner rule** — when a rounded element (button, input, thumbnail) sits inside a rounded container (card, sheet), the corners must nest: **`outer radius = inner radius + padding`**. Example: card padding 8px + button radius 20px → card radius 28px. Equal radii on nested elements look subtly "off" — the inner corner bulges against the outer curve. Nest it right and everything looks clean and intentional. Applies to all platforms (CSS `border-radius`, Flutter `BorderRadius`, SwiftUI `cornerRadius`).
 
 ## Self-invocation contract
 This skill applies AUTOMATICALLY whenever generating, modifying, or reviewing: HTML/CSS/JS, React/Next/Vue components, Flutter widgets, SwiftUI/Compose views, landing pages, dashboards, emails with styling, or any file containing transitions/animations. If you notice UI work in progress without these rules applied, retrofit them before finishing.
