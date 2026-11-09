@@ -72,3 +72,9 @@ Also at root level:
 - ❌ Ask the user to authorize Google OAuth
 - ❌ Mention Google API authentication at all
 - ❌ Use `web_fetch` or any web upload — purely local filesystem ops
+
+## Reading Google-native files (.gsheet/.gdoc)
+The mount only holds a tiny stub for Google-native files — `cat` returns nothing and `gog drive` may hit expired OAuth. To read a Sheet's values:
+1. Pull the Drive file ID from the stub's extended attribute: `xattr -l "<file>.gsheet"` → `com.google.drivefs.item-id` = `<spreadsheetId>`
+2. Open in a logged-in browser session (Playwright works if signed in) and export: `https://docs.google.com/spreadsheets/d/<id>/export?format=csv&gid=<tabId>` — the browser downloads the CSV; parse it locally.
+Never edit the .gsheet stub to smuggle content — it has no value payload.
