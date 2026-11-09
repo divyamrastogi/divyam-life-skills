@@ -62,6 +62,13 @@ Apply these defaults whenever generating or reviewing ANY interface code — web
 ## Frequency-based exception (from interface-design-rules)
 Frequently-opened menus: skip the open animation, animate the close only.
 
+## Stability & hygiene (web)
+- **Never `transition: all`** — name exact properties.
+- **No transitions when switching light/dark mode** — disable them across the theme swap.
+- **Nothing animates on page load** unless intentional; hover/frequent interactions stay instant.
+- Flicker while animating? Add `will-change: transform` (especially iOS Safari).
+- Wrap animations in `@media (prefers-reduced-motion: no-preference)`.
+
 ## Geometry & radii (static, not motion)
 
 **Concentric corner rule** — when a rounded element (button, input, thumbnail) sits inside a rounded container (card, sheet), the corners must nest: **`outer radius = inner radius + padding`**. Example: card padding 8px + button radius 20px → card radius 28px. Equal radii on nested elements look subtly "off" — the inner corner bulges against the outer curve. Nest it right and everything looks clean and intentional. Applies to all platforms (CSS `border-radius`, Flutter `BorderRadius`, SwiftUI `cornerRadius`).

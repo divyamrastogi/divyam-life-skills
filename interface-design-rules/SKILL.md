@@ -19,18 +19,7 @@ Apply these whenever generating or reviewing UI code. They are defaults, not sug
 - Give images a 1px outline offset −1px: black at 8% opacity (light), white at 8% (dark).
 
 ## Motion
-- Animate from the **trigger** (transform-origin follows trigger position), not the center.
-- Exit animations are **subtler than entrances**: shorter distance, fade + 4px blur.
-- Frequently-opened menus: skip open animation, animate close only.
-- Never `transition: all` — name exact properties.
-- Buttons scale to 0.95–0.98 on press, `transition: scale 200ms ease-out`.
-- Icon swaps: crossfade + new icon scales 0.25→1, blur 4px→0 (reverse for old).
-- CSS transitions for interactions (reversible mid-flight); keyframes only for one-shot sequences.
-- No transitions when switching light/dark mode.
-- Flicker while animating? Add `will-change: transform` (especially iOS Safari).
-- Entrances animate in small staggered groups, never one giant block.
-- Nothing animates on page load unless intentional. Hover/frequent interactions stay instant.
-- Wrap animations in `@media (prefers-reduced-motion: no-preference)`.
+All motion/animation guidance now lives in the **ui-animation-rules** skill (20 rules: easing, stagger, presses, popovers, exits, masks, crossfades, rubber-banding, shared elements, plus stability/hygiene like the `transition: all` ban, reduced-motion wrapper and theme-switch rule). Read it alongside this skill for any UI work with motion.
 
 ## Typography
 - Web fonts: **.woff2 only** (.woff fallback; never .ttf/.otf).

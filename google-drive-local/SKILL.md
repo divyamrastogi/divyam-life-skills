@@ -17,7 +17,9 @@ Whenever the user asks to:
 
 ## Key Principle
 
-**Never use `gog drive` API or ask for Google OAuth.** The Mac has Google Drive for Desktop installed with the local mount at:
+**Never use `gog drive` API or ask for Google OAuth.**
+
+⚠️ **Cloud-only placeholder trap:** files not marked "Available offline" return `Resource deadlock avoided` / 0-byte copies on read. If a read fails: retry after a pause; if still failing, open the file once via its Drive URL in a browser (Google Drive app streams it), or ask the user to toggle Available offline. Never conclude a file is empty or missing without this check. The Mac has Google Drive for Desktop installed with the local mount at:
 
 ```
 ~/Google Drive/My Drive/
