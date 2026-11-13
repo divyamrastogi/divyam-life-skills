@@ -38,7 +38,7 @@ If a thin recipe is found:
 
 **Rule:** If a recipe can't be found on any of these 4 sources → **delete it from the DB.**
 
-**Exempt:** rows with `source_kind = 'user_import'` are user-submitted via the in-app link import and reviewed by Divyam in the Admin tab. Never delete them from this audit; filter them out of every query with `AND source_kind = 'curated'`.
+**Exempt:** rows with `source_kind = 'user_import'` are user-submitted via the in-app link import. They come from any site or video, so the approved-source rule does not apply to them. The automatic reviewer (`ahaara-import-review`, in `worker/`) decides whether each one is published, and Divyam can override it from the Admin tab or with `ahaara-import-review unpublish <slug>`. Never delete them or flag them as unlisted or thin from this audit. Every recipe query below filters them out with `source_kind=eq.curated` (SQL: `AND source_kind = 'curated'`); keep that filter in any query you add.
 
 Source must be verifiable (URL must exist and contain the recipe). Existence on a site is enough — the recipe doesn't have to be re-imported unless Divyam requests it.
 
@@ -60,7 +60,7 @@ Use the **service role key** for all deletions and writes. The anon key is read-
 ## Step 1 — Fetch All Recipes + Check Quality
 
 ```bash
-curl -s "https://yrabrnnahllogoysdvwi.supabase.co/rest/v1/recipes?select=id,name,slug" \
+curl -s "https://yrabrnnahllogoysdvwi.supabase.co/rest/v1/recipes?select=id,name,slug&source_kind=eq.curated" \
   -H "apikey: sb_publishable_nWSo1zqVz-y2RuC2HmZx_A_Gzgzfcyv" \
   -H "Authorization: Bearer sb_publishable_nWSo1zqVz-y2RuC2HmZx_A_Gzgzfcyv"
 ```
@@ -80,7 +80,7 @@ SERVICE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.<SERVICE_ROLE-JWT-REDACTED>.Gs
 BASE="https://yrabrnnahllogoysdvwi.supabase.co/rest/v1"
 
 # Fetch all recipes
-RECIPES=$(curl -s "$BASE/recipes?select=id,name,slug" \
+RECIPES=$(curl -s "$BASE/recipes?select=id,name,slug&source_kind=eq.curated" \
   -H "apikey: $SERVICE_KEY" -H "Authorization: Bearer $SERVICE_KEY")
 
 # For each recipe, count tasks and ingredients
@@ -96,7 +96,7 @@ def fetch(path):
     req = urllib.request.Request(f"{BASE}{path}", headers=HEADERS)
     return json.loads(urllib.request.urlopen(req).read())
 
-recipes = fetch("/recipes?select=id,name,slug")
+recipes = fetch("/recipes?select=id,name,slug&source_kind=eq.curated")
 thin = []
 for r in recipes:
     rid = r["id"]
@@ -154,7 +154,7 @@ units = re.compile(r"(?i)(?<![a-z0-9])(\d+(?:\.\d+)?|\d+/\d+|[¼½¾⅓⅔⅛])\
 
 tasks, offset = [], 0
 while True:
-    page = fetch(f"/phase_tasks?select=id,description,recipe_phases(recipes(name,slug))&limit=1000&offset={offset}")
+    page = fetch(f"/phase_tasks?select=id,description,recipe_phases!inner(recipes!inner(name,slug,source_kind))&recipe_phases.recipes.source_kind=eq.curated&limit=1000&offset={offset}")
     tasks += page
     if len(page) < 1000: break
     offset += 1000

@@ -50,6 +50,12 @@ def cmd_read(uid):
     print(body[:3000])
     m.logout()
 
+def cmd_markread(uid):
+    m = connect()
+    m.store(uid, "+FLAGS", "(\\Seen)")
+    print(f"MARKED READ [{uid}]")
+    m.logout()
+
 def cmd_send(to, subject, body, attach=None):
     m = EmailMessage()
     m["From"] = USER; m["To"] = to; m["Subject"] = subject
@@ -74,6 +80,7 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "list"
     if cmd == "list": cmd_list(sys.argv[2] if len(sys.argv) > 2 else "", sys.argv[3] if len(sys.argv) > 3 else 10, sys.argv[4] if len(sys.argv) > 4 else "INBOX")
     elif cmd == "read": cmd_read(sys.argv[2])
+    elif cmd == "markread": cmd_markread(sys.argv[2])
     elif cmd == "send": cmd_send(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] if len(sys.argv) > 5 else None)
     elif cmd == "draft": cmd_draft(sys.argv[2], sys.argv[3], sys.argv[4])
     else: print("usage: mail.py list [query] [n] [mailbox=INBOX|sent] | read <uid> | send <to> <subject> <body> [attachments-csv] | draft <to> <subject> <body>")
