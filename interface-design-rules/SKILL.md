@@ -19,7 +19,7 @@ Apply these whenever generating or reviewing UI code. They are defaults, not sug
 - Give images a 1px outline offset −1px: black at 8% opacity (light), white at 8% (dark).
 
 ## Motion
-All motion/animation guidance now lives in the **ui-animation-rules** skill (20 rules: easing, stagger, presses, popovers, exits, masks, crossfades, rubber-banding, shared elements, plus stability/hygiene like the `transition: all` ban, reduced-motion wrapper and theme-switch rule). Read it alongside this skill for any UI work with motion.
+Motion/animation guidance lives in the **charles-ux-animation** skill (20 principles, Emil Kowalski's rules, Interface Craft motion techniques), with **charles-polish** for frame-by-frame review passes. Keep the `transition: all` ban, reduced-motion support and no-theme-switch-transitions rules here. Read those skills alongside this one for any UI work with motion.
 
 ## Typography
 - Web fonts: **.woff2 only** (.woff fallback; never .ttf/.otf).
