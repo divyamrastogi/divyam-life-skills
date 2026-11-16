@@ -18,6 +18,17 @@ Apply these whenever generating or reviewing UI code. They are defaults, not sug
 - Use **layered box-shadows** for depth instead of borders.
 - Give images a 1px outline offset −1px: black at 8% opacity (light), white at 8% (dark).
 
+## Radii & corners (house rule)
+
+- **Any `border-radius` gets `corner-shape: squircle` alongside it** — iOS-style continuous curvature instead of circular corners. Always pair: `border-radius` defines the size, `corner-shape: squircle` upgrades the curve. Unsupported browsers (Firefox/Safari as of late 2026) safely ignore `corner-shape` and keep the normal rounded rect — never a breaking fallback.
+  ```css
+  .card { border-radius: 24px; corner-shape: squircle; }
+  ```
+  - Applies to all UI code we generate: cards, buttons, inputs, sheets, images
+  - Mobile equivalents: Flutter `ContinuousRectangleBorder` / `ShapeBorder.superellipse`, SwiftUI `.rect.cornerRadii` with continuous style (`uncornerRadius`/`.rect(corners:)`), iOS `UICurvedCornerRectangleButton` pattern
+  - Exception: tiny radii (≤6px, e.g. badges) gain nothing from squircle — plain border-radius is fine
+  - Nested elements still follow the concentric rule: outer radius = inner radius + padding (see charles-ux-animation)
+
 ## Motion
 Motion/animation guidance lives in the **charles-ux-animation** skill (20 principles, Emil Kowalski's rules, Interface Craft motion techniques), with **charles-polish** for frame-by-frame review passes. Keep the `transition: all` ban, reduced-motion support and no-theme-switch-transitions rules here. Read those skills alongside this one for any UI work with motion.
 

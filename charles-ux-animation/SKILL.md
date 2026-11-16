@@ -272,3 +272,6 @@ Run every check you can. In a code-only review, don't build a harness: after the
 - [ ] **Tenth use:** once everything else is done, run each animation at full speed as someone seeing it for the tenth time today. Cut or shorten the one that starts to feel slow.
 
 **Appeal** is what you get when everything above holds. You can't add it at the end, only fail to lose it. Final pass: one set of named curves and durations used everywhere; every state designed (empty, loading, error, success, offline); nothing appears from nothing.
+
+## House additions (not in upstream)
+- **Squircle corners everywhere:** whenever `border-radius` is used, pair it with `corner-shape: squircle` (safe fallback: unsupported browsers ignore it and keep the circular corner). Tiny radii ≤6px excepted. Nested radii still follow the concentric rule (outer = inner + padding). Full spec in `interface-design-rules` → "Radii & corners".
