@@ -13,8 +13,12 @@ python3 ~/clawd/skills/gmail-direct/scripts/mail.py list "newer_than:7d" 10   # 
 python3 ~/clawd/skills/gmail-direct/scripts/mail.py list "from:x has:attachment" 6 sent  # search a mailbox: INBOX (default) or sent
 python3 ~/clawd/skills/gmail-direct/scripts/mail.py read 97847               # read message by uid
 python3 ~/clawd/skills/gmail-direct/scripts/mail.py send <to> "<subject>" "<body>" "<attach1.csv,attach2.pdf>"
-python3 ~/clawd/skills/gmail-direct/scripts/mail.py draft <to> "<subject>" "<body>"   # saves to Gmail Drafts
+python3 ~/clawd/skills/gmail-direct/scripts/mail.py draft <to> "<subject>" "<body>" "<attach1.pdf,attach2.pdf>"   # saves to Gmail Drafts with attachments
+python3 ~/clawd/skills/gmail-direct/scripts/mail.py draftlink "<subject query>"   # prints Gmail compose link for a saved draft
 ```
+
+### Draft-link gotcha
+Opening a `#drafts?compose=<msgid>` link **consumes the draft** (Gmail moves it into an active compose session) — after the recipient is sent, the draft disappears from the Drafts folder. That's normal, not a bug. The `draftlink` command is for handing Divyam a one-tap link; expect it to vanish once he opens/sends it.
 
 ## Pitfalls (verified 2026-11-05)
 - **Drafts must append to `'"[Gmail]/Drafts"'`** — appending to bare `Drafts` silently succeeds but the message never appears in Gmail's Drafts folder. (Script already fixed; keep it that way.)

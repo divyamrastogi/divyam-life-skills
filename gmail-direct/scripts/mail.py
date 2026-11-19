@@ -68,13 +68,40 @@ def cmd_send(to, subject, body, attach=None):
     s.login(USER, getpwd()); s.send_message(m); s.quit()
     print(f"SENT → {to} | {subject}" + (f" | attachments: {attach}" if attach else ""))
 
-def cmd_draft(to, subject, body):
+def cmd_draft(to, subject, body, attach=None):
     m = connect()
     msg = EmailMessage(); msg["From"] = USER; msg["To"] = to; msg["Subject"] = subject
     msg.set_content(body)
+    if attach:
+        for path in attach.split(","):
+            with open(path.strip(), "rb") as f:
+                msg.add_attachment(f.read(), maintype="application", subtype="pdf",
+                                   filename=os.path.basename(path.strip()))
     m.append('"[Gmail]/Drafts"', None, None, msg.as_bytes())
-    print(f"DRAFT saved → {to} | {subject}")
+    print(f"DRAFT saved → {to} | {subject}" + (f" | attachments: {attach}" if attach else ""))
     m.logout()
+
+def cmd_draftlink(query):
+    """Find a draft by subject query and print its Gmail compose link."""
+    import re
+    m = connect()
+    m.select('"[Gmail]/Drafts"')
+    typ, data = m.search(None, "SUBJECT", f'"{query}"')
+    out = []
+    for u in data[0].split():
+        typ, d = m.fetch(u, "(BODY.PEEK[HEADER.FIELDS (SUBJECT)] X-GM-MSGID)")
+        for part in d:
+            if isinstance(part, tuple):
+                s = part[0].decode("utf-8", "ignore")
+                gm = re.search(r"X-GM-MSGID (\d+)", s)
+                subj = re.search(r"Subject: (.+)", s, re.I)
+                if gm:
+                    link = "https://mail.google.com/mail/u/0/#drafts?compose=" + gm.group(1)
+                    out.append({"uid": u.decode(), "link": link,
+                                "subject": subj.group(1).strip() if subj else "?"})
+    m.logout()
+    for item in out:
+        print(f'{item["uid"]} | {item["subject"][:60]} | {item["link"]}')
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "list"
@@ -82,5 +109,6 @@ if __name__ == "__main__":
     elif cmd == "read": cmd_read(sys.argv[2])
     elif cmd == "markread": cmd_markread(sys.argv[2])
     elif cmd == "send": cmd_send(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] if len(sys.argv) > 5 else None)
-    elif cmd == "draft": cmd_draft(sys.argv[2], sys.argv[3], sys.argv[4])
-    else: print("usage: mail.py list [query] [n] [mailbox=INBOX|sent] | read <uid> | send <to> <subject> <body> [attachments-csv] | draft <to> <subject> <body>")
+    elif cmd == "draft": cmd_draft(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5] if len(sys.argv) > 5 else None)
+    elif cmd == "draftlink": cmd_draftlink(sys.argv[2])
+    else: print("usage: mail.py list [query] [n] [mailbox=INBOX|sent] | read <uid> | send <to> <subject> <body> [attachments-csv] | draft <to> <subject> <body> [attachments-csv] | draftlink <subject-query>")
