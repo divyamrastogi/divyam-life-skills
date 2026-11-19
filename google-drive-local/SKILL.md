@@ -80,3 +80,13 @@ The mount only holds a tiny stub for Google-native files — `cat` returns nothi
 1. Pull the Drive file ID from the stub's extended attribute: `xattr -l "<file>.gsheet"` → `com.google.drivefs.item-id` = `<spreadsheetId>`
 2. Open in a logged-in browser session (Playwright works if signed in) and export: `https://docs.google.com/spreadsheets/d/<id>/export?format=csv&gid=<tabId>` — the browser downloads the CSV; parse it locally.
 Never edit the .gsheet stub to smuggle content — it has no value payload.
+
+## Reading Google Sheets (Sheets API broken → browser route)
+`gog drive/sheets` calls fail with `unauthorized_client` (OAuth for the gogcli client is broken). `.gsheet` stubs on the mount contain no data. The working method — the Playwright browser is already logged into divyamsuperb@gmail.com:
+
+1. Get the sheet's file ID from the `.gsheet` stub's xattr: `xattr -l "<stub>.gsheet" | grep item-id` (id after `#S: `).
+2. Navigate the Playwright browser to `https://docs.google.com/spreadsheets/d/<FILE_ID>/export?format=csv&gid=0` — the tab downloads the CSV to the Playwright MCP output dir (`~/.openclaw/.playwright-mcp/`).
+3. Read the CSV from there. Works for xlsx too (`format=xlsx`).
+
+## Cloud-only files deadlock (Drive mount pitfall)
+Files not marked "Available offline" fail to read/copy from `~/Google Drive/` with `Resource deadlock avoided` / `fcopyfile failed` — retries don't help (Google Drive streaming bug, seen with PDFs in Family Documents). Fixes: open the file once in the Drive app / toggle **Available offline**, or read it in the Playwright browser via the Drive file URL (`drive.google.com/file/d/<id>/view`). Get `<id>` from the stub's xattr `com.google.drivefs.item-id#S`.
